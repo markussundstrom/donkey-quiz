@@ -11,7 +11,7 @@
                 <object type="image/svg+xml" data="images/Logo.svg" width="96" height="112"></object>
                 <p class="font-24 text-darkblue font-semibold">donkeyquiz</p>
             </div>
-            <div class="overflow-hidden flex justify-center fixed inset-0">
+            <div class="-z-50 overflow-hidden flex justify-center fixed inset-0">
                 <div class="w-full relative min-w-[820px] h-full">
                     <div class="block absolute left-0 bottom-[77px]">
                         <object type="image/svg+xml" data="images/blob-l.svg" width="154" height="415"></object>
@@ -21,36 +21,35 @@
                     </div>
                 </div>
             </div>
-            <div class="start text-darkblue h-screen flex flex-col justify-center items-center text-center">
+            <div id="progress" class="hidden absolute bottom-8 w-full flex flex-col items-center">
+                <div class="relative my-4 w-full max-w-lg flex flex-col justify-center align-center" >
+                    <div id="progressbase" class="h-0.5 w-full"></div>
+                    <div id="progressbar" class="absolute h-0.5 w-1/4 rounded-full border-4"></div>
+                </div>
+                <div>
+                    <p id="progresstext" class="text-16 font-normal text-center"></p>
+                </div>
+            </div>
+            <div id="start" class="text-darkblue h-screen flex flex-col justify-center items-center text-center">
                 <h1 class="text-32 md:text-48 font-semibold">Svensk mästare i TP?</h1>
                 <p class="max-w-lg text-20 font-normal mt-8 mb-10">Utmana vänner, kollegor och familj på frågesport. Svara på 35 samtida frågor i 7 olika kategorier.</p>
-                <button id="btnnewgame" class="text-16 text-lightblue font-semibold border-2 border-lightblue rounded-full px-8 py-3.5 hover:bg-lightblue hover:text-white">Klicka här för att starta</button>
+                <button id="btnnewgame"  class="text-16 text-lightblue font-semibold border-2 border-lightblue rounded-full px-8 py-3.5 hover:bg-lightblue hover:text-white">Klicka här för att starta</button>
             </div>
-            <div class="hidden question text-darkblue h-screen flex flex-col justify-center items-center text-center">
+            <div id="question" class="hidden text-darkblue h-screen flex flex-col justify-center items-center text-center">
                 <h1 class="text-14 font-semibold">Film & TV</h1>
                 <p class=" max-w-2xl text-20 md:text-48 font-semibold mx-8 mt-10 mb-16 md:mb-10">I vilken amerikansk delstat utspelar sig den populära Netflixserien Stranger Things?</p>
-                <button class="text-16 font-semibold text-lightblue border-2 border-lightblue rounded-full px-8 py-3.5 hover:bg-lightblue hover:text-white">Se svaret</button>
+                <button id="btnseeanswer" class="text-16 font-semibold bg-white text-lightblue border-2 border-lightblue rounded-full px-8 py-3.5 hover:bg-lightblue hover:text-white">Se svaret</button>
             </div>
-            <div class="hidden answer bg-lightblue text-white h-screen flex flex-col justify-center items-center">
+            <div id="answer" class="hidden bg-lightblue text-white h-screen flex flex-col justify-center items-center">
                 <h1 class="text-14 font-semibold">Rätt svar</h1>
                 <p class="text-48 text-green font-semibold my-10">Indiana</p>
                 <p class="text-14 font-semiboldi mb-10">Svarade du rätt?</p>
                 <div class="flex flex-row justify-between gap-6">
-                    <button class="text-16 font-semibold border-2 border-white rounded-full px-8 py-3.5 hover:bg-white hover:text-lightblue">Ja</button>
-                    <button class="text-16 font-semibold border-2 border-white rounded-full px-8 py-3.5 hover:bg-white hover:text-lightblue">Nej</button>
-                </div>
-                <div class="absolute bottom-8 w-full">
-
-                    <div class="px-8 my-4 w-full flex flex-col justify-center align-center" >
-                        <div class="bg-white h-0.5 w-full"></div>
-                        <div class="absolute bg-white h-0.5 w-1/4 rounded-full border-4"></div>
-                    </div>
-                    <div>
-                        <p class="text-16 font-normal text-center">Fråga 2 av 35</p>
-                    </div>
+                    <button id="btncorrect" class="text-16 font-semibold border-2 border-white rounded-full px-8 py-3.5 hover:bg-white hover:text-lightblue">Ja</button>
+                    <button id="btnwrong" class="text-16 font-semibold border-2 border-white rounded-full px-8 py-3.5 hover:bg-white hover:text-lightblue">Nej</button>
                 </div>
             </div>
-            <div class="hidden result text-darkblue h-screen flex flex-col bg-white  pt-[120px] pb-0 md:py-4 justify-center items-center">
+            <div id="result" class="hidden text-darkblue h-screen flex flex-col bg-white  pt-[120px] pb-0 md:py-4 justify-center items-center">
                 <h1 class="text-14 font-semibold">Ditt resultat</h1>
                 <p class="md:text-48 text-24 font-semibold my-1 md:mt-10 md:mb-16">21 av 35 rätt</p>
                 <div class="lg:w-1/2 md:w-3/4 flex flex-col md:flex-row justify-between items-center">
@@ -97,7 +96,7 @@
                         <div id="6-5" class="indicator"></div>
                     </div>
                 </div>
-                <button class="text-16 font-semibold text-lightblue border-2 border-lightblue rounded-full px-8 py-3.5 hover:bg-lightblue hover:text-white mt-1 md:mt-16">En runda till</button>
+                <button id="btnrunback" class="text-16 font-semibold text-lightblue border-2 border-lightblue rounded-full px-8 py-3.5 hover:bg-lightblue hover:text-white mt-1 md:mt-16">En runda till</button>
             </div>
         </div>
         <script type="module" crossorigin src="http://localhost:3000/@@vite/client"></script>
