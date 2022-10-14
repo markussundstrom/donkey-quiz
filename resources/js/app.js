@@ -14,9 +14,11 @@ import '../css/app.css'
 
 
 const numQuestions = 5;
-const points = [];
-//const questions = [];
+let points = [0, 0, 0, 0, 0, 0, 0];
+let questions = [];
+const categories = ['Film & TV', 'Geografi', 'Historia', 'Musik', 'Övrigt', 'Vetenskap', 'Sport'];
 let qIndex;
+let total;
 
 btnnewgame.addEventListener("click", playGame);
 btnseeanswer.addEventListener("click", seeAnswer);
@@ -26,23 +28,27 @@ btnrunback.addEventListener("click", playGame);
 
 function playGame() {
     qIndex = 1;
-    for (p of points) {
-        p = 0;
+    for (let i=0; i < points.length; i++) {
+        points[i] = 0;
     }
+
+    total = 0;
+    questions = [];
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
-        const questions = JSON.parse(this.responseText);
+        questions.push(...JSON.parse(this.responseText));
         console.log(questions);
+        document.getElementById('start').classList.add('hidden');
+        document.getElementById('result').classList.add('hidden');
+        askQuestion();
     }
     xhttp.open('GET', 'questions');
     xhttp.send();
-    document.getElementById('start').classList.add('hidden');
-    document.getElementById('result').classList.add('hidden');
-    askQuestion();
 }
 
 function askQuestion() {
-    //FIXME qIndex from questions[] to HTML
+    document.getElementById('questioncategory').innerHTML = questions[qIndex -1].category;
+    document.getElementById('questiontext').innerHTML = questions[qIndex -1].question;
     flipSVGs('lightblue');
     flipLogo('lightblue');
     document.getElementById('progresstext').innerHTML = "Fråga " + qIndex + " av " + numQuestions;
@@ -61,7 +67,7 @@ function askQuestion() {
 
 function seeAnswer() {
     document.getElementById('question').classList.add('hidden');
-    //FIXME answer from questions[qindex-1]
+    document.getElementById('answertext').innerHTML = questions[qIndex - 1].answer;
     flipSVGs('white');
     flipLogo('white');
     document.getElementById('progresstext').innerHTML = "Fråga " + qIndex + " av " + numQuestions;
@@ -80,7 +86,7 @@ function seeAnswer() {
 
 function scoreAnswer(answerValidity) {
     if (answerValidity) {
-        //FIXME update score
+        points[categories.indexOf(questions[qIndex - 1].category)]++
     }
     if (qIndex < numQuestions) {
         qIndex++;
@@ -93,6 +99,12 @@ function scoreAnswer(answerValidity) {
 }
 
 function viewScore() {
+    for (let categorypoints of points) {
+        total += categorypoints;
+    }
+    console.log("total"+total);
+    console.log("points"+points);
+    document.getElementById('totalscore').innerHTML = total + ' av ' + numQuestions + ' rätt';
     //FIXME update scores and indicators
     document.getElementById('progress').classList.add('hidden');
     document.getElementById('result').classList.remove('hidden');
@@ -115,3 +127,4 @@ function flipLogo(color) {
     let logo = (color === 'white') ? 'images/Logo-inv.svg' : 'images/Logo.svg';
     document.getElementById('logoimage').setAttribute('data', logo);
 }
+

@@ -36,13 +36,13 @@
                 <button id="btnnewgame"  class="text-16 text-lightblue font-semibold border-2 border-lightblue rounded-full px-8 py-3.5 hover:bg-lightblue hover:text-white">Klicka här för att starta</button>
             </div>
             <div id="question" class="hidden text-darkblue h-screen flex flex-col justify-center items-center text-center">
-                <h1 class="text-14 font-semibold">Film & TV</h1>
-                <p class=" max-w-2xl text-20 md:text-48 font-semibold mx-8 mt-10 mb-16 md:mb-10">I vilken amerikansk delstat utspelar sig den populära Netflixserien Stranger Things?</p>
+                <h1 id="questioncategory" class="text-14 font-semibold"></h1>
+                <p id="questiontext" class=" max-w-2xl text-20 md:text-48 font-semibold mx-8 mt-10 mb-16 md:mb-10"></p>
                 <button id="btnseeanswer" class="text-16 font-semibold bg-white text-lightblue border-2 border-lightblue rounded-full px-8 py-3.5 hover:bg-lightblue hover:text-white">Se svaret</button>
             </div>
             <div id="answer" class="hidden bg-lightblue text-white h-screen flex flex-col justify-center items-center">
                 <h1 class="text-14 font-semibold">Rätt svar</h1>
-                <p class="text-48 text-green font-semibold my-10">Indiana</p>
+                <p id="answertext" class="text-48 text-green font-semibold my-10"></p>
                 <p class="text-14 font-semiboldi mb-10">Svarade du rätt?</p>
                 <div class="flex flex-row justify-between gap-6">
                     <button id="btncorrect" class="text-16 font-semibold border-2 border-white rounded-full px-8 py-3.5 hover:bg-white hover:text-lightblue">Ja</button>
@@ -51,7 +51,7 @@
             </div>
             <div id="result" class="hidden text-darkblue h-screen flex flex-col bg-white  pt-[120px] pb-0 md:py-4 justify-center items-center">
                 <h1 class="text-14 font-semibold">Ditt resultat</h1>
-                <p class="md:text-48 text-24 font-semibold my-1 md:mt-10 md:mb-16">21 av 35 rätt</p>
+                <p id="totalscore" class="md:text-48 text-24 font-semibold my-1 md:mt-10 md:mb-16"></p>
                 <div class="lg:w-1/2 md:w-3/4 flex flex-col md:flex-row justify-between items-center">
                     <div id="filmtv" class="resultrow">
                         <div id="0-0" class="w-full"><p class="text-14 font-semibold text-center">Film &amp; TV</div>
