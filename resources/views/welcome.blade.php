@@ -8,16 +8,16 @@
     <body class="font-poppins">
         <div class="container mx-auto h-screen">
             <div class="logo m-auto right-0 left-0 absolute flex flex-col items-center p-4 md:items-start md:pt-7 md:pl-20">
-                <object type="image/svg+xml" data="images/Logo.svg" width="96" height="112"></object>
+                <object id="logoimage" type="image/svg+xml" data="images/Logo.svg" width="96" height="112"></object>
                 <p class="font-24 text-darkblue font-semibold">donkeyquiz</p>
             </div>
-            <div class="-z-50 overflow-hidden flex justify-center fixed inset-0">
+            <div class="pointer-events-none overflow-hidden flex justify-center fixed inset-0">
                 <div class="w-full relative min-w-[820px] h-full">
-                    <div class="block absolute left-0 bottom-[77px]">
-                        <object type="image/svg+xml" data="images/blob-l.svg" width="154" height="415"></object>
+                    <div class="z-50 block absolute left-0 bottom-[77px]">
+                        <object class="blob" type="image/svg+xml" data="images/blob-l.svg" width="154" height="415"></object>
                     </div>
-                    <div class="block absolute right-0 top-[86px]">
-                        <object type="image/svg+xml" data="images/blob-r.svg" width="154" height="415"></object>
+                    <div class="z-50 block absolute right-0 top-[86px]">
+                        <object class="blob" type="image/svg+xml" data="images/blob-r.svg" width="154" height="415"></object>
                     </div>
                 </div>
             </div>
@@ -54,43 +54,43 @@
                 <p class="md:text-48 text-24 font-semibold my-1 md:mt-10 md:mb-16">21 av 35 rätt</p>
                 <div class="lg:w-1/2 md:w-3/4 flex flex-col md:flex-row justify-between items-center">
                     <div id="filmtv" class="resultrow">
-                        <div id="0-0" class="w-full"><p class="text-14 font-semibold text-center">Sport</p></div>
+                        <div id="0-0" class="w-full"><p class="text-14 font-semibold text-center">Film &amp; TV</div>
                         <div id="0-1" class="indicator"></div><div id="0-2" class="indicator"></div>
                         <div id="0-3" class="indicator"></div><div id="0-4" class="indicator"></div>
                         <div id="0-5" class="indicator"></div>
                     </div>
                     <div id="geografi" class="resultrow">
-                        <div id="1-0" class="w-full"><p class="text-14 font-semibold text-center">Film &amp; TV</div>
+                        <div id="1-0" class="w-full"><p class="text-14 font-semibold text-center">Geografi</p></div>
                         <div id="1-1" class="indicator bg-green"></div><div id="1-2" class="indicator bg-green"></div>
                         <div id="1-3" class="indicator"></div><div id="1-4" class="indicator"></div>
                         <div id="1-5" class="indicator"></div>
                     </div>
                     <div id="historia" class="resultrow">
-                        <div id="2-0" class="w-full"><p class="text-14 font-semibold text-center">Geografi</p></div>
+                        <div id="2-0" class="w-full"><p class="text-14 font-semibold text-center">Historia</p></div>
                         <div id="2-1" class="indicator"></div><div id="2-2" class="indicator"></div>
                         <div id="2-3" class="indicator"></div><div id="2-4" class="indicator"></div>
                         <div id="2-5" class="indicator"></div>
                     </div>
                     <div id="musik" class="resultrow">
-                        <div id="3-0" class="w-full"><p class="text-14 font-semibold text-center">Historia</p></div>
+                        <div id="3-0" class="w-full"><p class="text-14 font-semibold text-center">Musik</p></div>
                         <div id="3-1" class="indicator"></div><div id="3-2" class="indicator"></div>
                         <div id="3-3" class="indicator"></div><div id="3-4" class="indicator"></div>
                         <div id="3-5" class="indicator"></div>
                     </div>
                     <div id="ovrigt" class="resultrow">
-                        <div id="4-0" class="w-full"><p class="text-14 font-semibold text-center">Musik</p></div>
+                        <div id="4-0" class="w-full"><p class="text-14 font-semibold text-center">Övrigt</p></div>
                         <div id="4-1" class="indicator"></div><div id="4-2" class="indicator"></div>
                         <div id="4-3" class="indicator"></div><div id="4-4" class="indicator"></div>
                         <div id="4-5" class="indicator"></div>
                     </div>
                     <div id="vetenskap" class="resultrow">
-                        <div id="5-0" class="w-full"><p class="text-14 font-semibold text-center">Övrigt</p></div>
+                        <div id="5-0" class="w-full"><p class="text-14 font-semibold text-center">Vetenskap</p></div>
                         <div id="5-1" class="indicator"></div><div id="5-2" class="indicator"></div>
                         <div id="5-3" class="indicator"></div><div id="5-4" class="indicator"></div>
                         <div id="5-5" class="indicator"></div>
                     </div>
                     <div id="sport" class="resultrow">
-                        <div id="6-0" class="w-full"><p class="text-14 font-semibold text-center">Vetenskap</p></div>
+                        <div id="6-0" class="w-full"><p class="text-14 font-semibold text-center">Sport</p></div>
                         <div id="6-1" class="indicator"></div><div id="6-2" class="indicator"></div>
                         <div id="6-3" class="indicator"></div><div id="6-4" class="indicator"></div>
                         <div id="6-5" class="indicator"></div>

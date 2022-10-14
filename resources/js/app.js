@@ -15,7 +15,7 @@ import '../css/app.css'
 
 const numQuestions = 5;
 const points = [];
-const questions = [];
+//const questions = [];
 let qIndex;
 
 btnnewgame.addEventListener("click", playGame);
@@ -29,8 +29,13 @@ function playGame() {
     for (p of points) {
         p = 0;
     }
-    //FIXME fetch questions
-    console.log('new');
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        const questions = JSON.parse(this.responseText);
+        console.log(questions);
+    }
+    xhttp.open('GET', 'questions');
+    xhttp.send();
     document.getElementById('start').classList.add('hidden');
     document.getElementById('result').classList.add('hidden');
     askQuestion();
@@ -38,7 +43,8 @@ function playGame() {
 
 function askQuestion() {
     //FIXME qIndex from questions[] to HTML
-    //FIXME progressbar
+    flipSVGs('lightblue');
+    flipLogo('lightblue');
     document.getElementById('progresstext').innerHTML = "Fråga " + qIndex + " av " + numQuestions;
     document.getElementById('progresstext').classList.remove('bg-white');
     document.getElementById('progresstext').classList.add('bg-darkblue');
@@ -56,7 +62,8 @@ function askQuestion() {
 function seeAnswer() {
     document.getElementById('question').classList.add('hidden');
     //FIXME answer from questions[qindex-1]
-    //FIXME color of logo and blob
+    flipSVGs('white');
+    flipLogo('white');
     document.getElementById('progresstext').innerHTML = "Fråga " + qIndex + " av " + numQuestions;
     document.getElementById('progresstext').classList.remove('bg-darkblue');
     document.getElementById('progresstext').classList.add('bg-white');
@@ -89,6 +96,22 @@ function viewScore() {
     //FIXME update scores and indicators
     document.getElementById('progress').classList.add('hidden');
     document.getElementById('result').classList.remove('hidden');
+    flipSVGs('lightblue');
+    flipLogo('lightblue');
 }
 
+function flipSVGs(color) {
+    let fill = (color === 'white') ? '#FFFFFF' : '#7678ED';
+    const blobs = document.getElementsByClassName('blob');
+    for (let blob of blobs) {
+        let svgtags = blob.getSVGDocument().getElementsByTagName('path');
+        for (let tag of svgtags) {
+            tag.setAttribute('fill', fill);
+        }
+    }
+}
 
+function flipLogo(color) {
+    let logo = (color === 'white') ? 'images/Logo-inv.svg' : 'images/Logo.svg';
+    document.getElementById('logoimage').setAttribute('data', logo);
+}
