@@ -13,7 +13,7 @@ import '../css/app.css'
  window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 
-const numQuestions = 5;
+const numQuestions = 35;
 let points = [0, 0, 0, 0, 0, 0, 0];
 let questions = [];
 const categories = ['Film & TV', 'Geografi', 'Historia', 'Musik', 'Övrigt', 'Vetenskap', 'Sport'];
@@ -99,17 +99,18 @@ function scoreAnswer(answerValidity) {
 }
 
 function viewScore() {
-    for (let categorypoints of points) {
-        total += categorypoints;
+    for (let i = 0; i < points.length; i++) {
+        total += points[i];
+        for (let j = 1; j <= points[i]; j++) {
+            document.getElementById(i + '-' + j).classList.add('bg-green');
+        }
     }
-    console.log("total"+total);
-    console.log("points"+points);
     document.getElementById('totalscore').innerHTML = total + ' av ' + numQuestions + ' rätt';
     //FIXME update scores and indicators
-    document.getElementById('progress').classList.add('hidden');
-    document.getElementById('result').classList.remove('hidden');
     flipSVGs('lightblue');
     flipLogo('lightblue');
+    document.getElementById('progress').classList.add('hidden');
+    document.getElementById('result').classList.remove('hidden');
 }
 
 function flipSVGs(color) {

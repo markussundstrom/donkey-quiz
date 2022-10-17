@@ -61,7 +61,7 @@
                     </div>
                     <div id="geografi" class="resultrow">
                         <div id="1-0" class="w-full"><p class="text-14 font-semibold text-center">Geografi</p></div>
-                        <div id="1-1" class="indicator bg-green"></div><div id="1-2" class="indicator bg-green"></div>
+                        <div id="1-1" class="indicator"></div><div id="1-2" class="indicator"></div>
                         <div id="1-3" class="indicator"></div><div id="1-4" class="indicator"></div>
                         <div id="1-5" class="indicator"></div>
                     </div>
