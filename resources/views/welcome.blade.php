@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
@@ -14,10 +15,16 @@
             <div class="pointer-events-none overflow-hidden flex justify-center fixed inset-0">
                 <div class="w-full relative min-w-[820px] h-full">
                     <div class="z-50 block absolute left-0 bottom-[77px]">
-                        <object class="blob" type="image/svg+xml" data="images/blob-l.svg" width="154" height="415"></object>
+                        <svg id="blob-l" class="blob w-[400px] h-[400px]"> 
+                            <path d="" fill="#7678ED"></path>
+                        </svg>
+                        <!--<object class="blob" type="image/svg+xml" data="images/blob-l.svg" width="154" height="415"></object>-->
                     </div>
                     <div class="z-50 block absolute right-0 top-[86px]">
-                        <object class="blob" type="image/svg+xml" data="images/blob-r.svg" width="154" height="415"></object>
+                        <svg id="blob-r" class="blob w-[400px] h-[400px]"> 
+                            <path d="" fill="#7678ED"></path>
+                        </svg>
+                        <!--<object class="blob" type="image/svg+xml" data="images/blob-r.svg" width="154" height="415"></object>-->
                     </div>
                 </div>
             </div>

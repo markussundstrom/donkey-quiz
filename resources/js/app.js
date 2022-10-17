@@ -7,11 +7,13 @@ import '../css/app.css'
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
- import axios from 'axios';
- window.axios = axios;
+import axios from 'axios';
+window.axios = axios;
 
- window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
+import { spline } from '@georgedoescode/spline';
+import  { createNoise2D }  from 'simplex-noise';
 
 const numQuestions = 35;
 let points = [0, 0, 0, 0, 0, 0, 0];
@@ -19,6 +21,9 @@ let questions = [];
 const categories = ['Film & TV', 'Geografi', 'Historia', 'Musik', 'Övrigt', 'Vetenskap', 'Sport'];
 let qIndex;
 let total;
+const blobPoints = createBlobPoints();
+const simplex = createNoise2D();
+let noiseStep = 0.005;
 
 btnnewgame.addEventListener("click", playGame);
 btnseeanswer.addEventListener("click", seeAnswer);
@@ -106,7 +111,6 @@ function viewScore() {
         }
     }
     document.getElementById('totalscore').innerHTML = total + ' av ' + numQuestions + ' rätt';
-    //FIXME update scores and indicators
     flipSVGs('lightblue');
     flipLogo('lightblue');
     document.getElementById('progress').classList.add('hidden');
@@ -117,7 +121,7 @@ function flipSVGs(color) {
     let fill = (color === 'white') ? '#FFFFFF' : '#7678ED';
     const blobs = document.getElementsByClassName('blob');
     for (let blob of blobs) {
-        let svgtags = blob.getSVGDocument().getElementsByTagName('path');
+        let svgtags = blob.getElementsByTagName('path');
         for (let tag of svgtags) {
             tag.setAttribute('fill', fill);
         }
@@ -128,4 +132,61 @@ function flipLogo(color) {
     let logo = (color === 'white') ? 'images/Logo-inv.svg' : 'images/Logo.svg';
     document.getElementById('logoimage').setAttribute('data', logo);
 }
+
+function createBlobPoints() {
+    const blobPoints = [];
+    const numPoints = 6;
+    const angleStep = (Math.PI * 2) / numPoints;
+    const rad = 175;
+    
+    for (let i = 1; i <= numPoints; i++) {
+        const theta = i * angleStep;
+        const x = 200 + Math.cos(theta) * rad;
+        const y = 200 + Math.sin(theta) * rad;
+
+        blobPoints.push({
+            x: x,
+            y: y,
+            originX: x,
+            originY: y,
+            noiseOffsetX: Math.random() * 1000,
+            noiseOffsetY: Math.random() * 1000,
+        });
+    }
+    return blobPoints;
+}
+
+function map(n, start1, end1, start2, end2) {
+  return ((n - start1) / (end1 - start1)) * (end2 - start2) + start2;
+}
+
+function noise(x, y) {
+    return simplex(x, y);
+}
+
+(function animate() {
+    const blobs = document.getElementsByClassName('blob');
+    for (let blob of blobs) {
+        let svgtags = blob.getElementsByTagName('path');
+        for (let tag of svgtags) {
+            tag.setAttribute('d', spline(blobPoints, 1, true));
+        }
+    }
+    //document.getElementById('blob-l').getElementsByTagName('path').setAttribute('d', spline(blobPoints, 1, true));
+    requestAnimationFrame(animate);
+    for (let i = 0; i < blobPoints.length; i++) {
+        const point = blobPoints[i];
+
+        const nX = noise(point.noiseOffsetX, point.noiseOffsetX);
+        const nY = noise(point.noiseOffsetY, point.noiseOffsetY);
+        const x = map(nX, -1, 1, point.originX - 30, point.originX + 30);
+        const y = map(nY, -1, 1, point.originY - 30, point.originY + 30);
+
+        point.x = x;
+        point.y = y;
+
+        point.noiseOffsetX += noiseStep;
+        point.noiseOffsetY += noiseStep;
+    }
+})();
 
