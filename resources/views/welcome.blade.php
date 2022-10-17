@@ -13,7 +13,7 @@
                 <p class="font-24 text-darkblue font-semibold">donkeyquiz</p>
             </div>
             <div class="pointer-events-none overflow-hidden flex justify-center fixed inset-0">
-                <div class="w-full relative min-w-[820px] h-full">
+                <div class="w-full relative min-w-[1200px] h-full">
                     <div class="z-50 block absolute left-0 bottom-[77px]">
                         <svg id="blob-l" class="blob w-[400px] h-[400px]"> 
                             <path d="" fill="#7678ED"></path>
