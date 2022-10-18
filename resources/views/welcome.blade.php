@@ -31,7 +31,7 @@
             <div id="progress" class="hidden absolute bottom-8 w-full flex flex-col items-center">
                 <div class="relative my-4 w-full max-w-lg flex flex-col justify-center align-center" >
                     <div id="progressbase" class="h-0.5 w-full"></div>
-                    <div id="progressbar" class="absolute h-0.5 w-1/4 rounded-full border-4"></div>
+                    <div id="progressbar" class="absolute h-0.5 w-0 rounded-full border-4 transition-[width] ease-linear duration-1000"></div>
                 </div>
                 <div>
                     <p id="progresstext" class="text-16 font-normal text-center"></p>
