@@ -6,21 +6,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Donkeyquiz - boilerplate</title>
     </head>
-    <body class="font-poppins">
+    <body class="font-poppins bg-white">
         <div class="container mx-auto h-screen">
             <div class="logo m-auto right-0 left-0 absolute flex flex-col items-center p-4 md:items-start md:pt-7 md:pl-20">
                 <object id="logoimage" type="image/svg+xml" data="images/Logo.svg" width="96" height="112"></object>
                 <p class="font-24 text-darkblue font-semibold">donkeyquiz</p>
             </div>
-            <div class="pointer-events-none overflow-hidden flex justify-center fixed inset-0">
+            <div class="-z-50 hidden pointer-events-none overflow-hidden blob:flex justify-center fixed inset-0">
                 <div class="w-full relative min-w-[1200px] h-full">
-                    <div class="z-50 block absolute left-0 bottom-[77px]">
+                    <div class="block absolute left-0 bottom-[77px]">
                         <svg id="blob-l" class="blob w-[400px] h-[400px]"> 
                             <path d="" fill="#7678ED"></path>
                         </svg>
                         <!--<object class="blob" type="image/svg+xml" data="images/blob-l.svg" width="154" height="415"></object>-->
                     </div>
-                    <div class="z-50 block absolute right-0 top-[86px]">
+                    <div class="block absolute right-0 top-[86px]">
                         <svg id="blob-r" class="blob w-[400px] h-[400px]"> 
                             <path d="" fill="#7678ED"></path>
                         </svg>
@@ -37,7 +37,7 @@
                     <p id="progresstext" class="text-16 font-normal text-center"></p>
                 </div>
             </div>
-            <div id="start" class="text-darkblue h-screen flex flex-col justify-center items-center text-center">
+            <div id="start" class="z-50 text-darkblue h-screen flex flex-col justify-center items-center text-center">
                 <h1 class="text-32 md:text-48 font-semibold">Svensk mästare i TP?</h1>
                 <p class="max-w-lg text-20 font-normal mt-8 mb-10">Utmana vänner, kollegor och familj på frågesport. Svara på 35 samtida frågor i 7 olika kategorier.</p>
                 <button id="btnnewgame"  class="text-16 text-lightblue font-semibold border-2 border-lightblue rounded-full px-8 py-3.5 hover:bg-lightblue hover:text-white">Klicka här för att starta</button>
@@ -47,7 +47,7 @@
                 <p id="questiontext" class=" max-w-2xl text-20 md:text-48 font-semibold mx-8 mt-10 mb-16 md:mb-10"></p>
                 <button id="btnseeanswer" class="text-16 font-semibold bg-white text-lightblue border-2 border-lightblue rounded-full px-8 py-3.5 hover:bg-lightblue hover:text-white">Se svaret</button>
             </div>
-            <div id="answer" class="hidden bg-lightblue text-white h-screen flex flex-col justify-center items-center">
+            <div id="answer" class="hidden text-white h-screen flex flex-col justify-center items-center">
                 <h1 class="text-14 font-semibold">Rätt svar</h1>
                 <p id="answertext" class="text-48 text-green font-semibold my-10"></p>
                 <p class="text-14 font-semiboldi mb-10">Svarade du rätt?</p>
@@ -56,7 +56,7 @@
                     <button id="btnwrong" class="text-16 font-semibold border-2 border-white rounded-full px-8 py-3.5 hover:bg-white hover:text-lightblue">Nej</button>
                 </div>
             </div>
-            <div id="result" class="hidden text-darkblue h-screen flex flex-col bg-white  pt-[120px] pb-0 md:py-4 justify-center items-center">
+            <div id="result" class="hidden text-darkblue h-screen flex flex-col pt-[120px] pb-0 md:py-4 justify-center items-center">
                 <h1 class="text-14 font-semibold">Ditt resultat</h1>
                 <p id="totalscore" class="md:text-48 text-24 font-semibold my-1 md:mt-10 md:mb-16"></p>
                 <div class="lg:w-1/2 md:w-3/4 flex flex-col md:flex-row justify-between items-center">
