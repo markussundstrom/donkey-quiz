@@ -21,6 +21,7 @@ let questions = [];
 const categories = ['Film & TV', 'Geografi', 'Historia', 'Musik', 'Övrigt', 'Vetenskap', 'Sport'];
 let qIndex;
 let total;
+let current = '';
 const blobPoints = createBlobPoints();
 const simplex = createNoise2D();
 let noiseStep = 0.005;
@@ -43,8 +44,11 @@ function playGame() {
     xhttp.onload = function() {
         questions.push(...JSON.parse(this.responseText));
         console.log(questions);
-        document.getElementById('start').classList.add('hidden');
-        document.getElementById('result').classList.add('hidden');
+        //document.getElementById('start').classList.add('hidden');
+        //document.getElementById('result').classList.add('hidden');
+        //transitionElementa('start', );
+        //hideElement('result');
+        current = 'start';
         askQuestion();
     }
     xhttp.open('GET', 'questions');
@@ -66,12 +70,14 @@ function askQuestion() {
     document.getElementById('progressbar').classList.remove('border-white');
     document.getElementById('progressbar').classList.add('border-darkblue');
     document.getElementById('progressbar').style.width = ((qIndex - 0.5) / numQuestions) * 100 + "%";
-    document.getElementById('question').classList.remove('hidden');
+    //document.getElementById('question').classList.remove('hidden');
+    transitionElements(current, 'question');
+    current = 'question';
     document.getElementById('progress').classList.remove('hidden');
 }
 
 function seeAnswer() {
-    document.getElementById('question').classList.add('hidden');
+    //document.getElementById('question').classList.add('hidden');
     document.getElementById('answertext').innerHTML = questions[qIndex - 1].answer;
     flipSVGs('white');
     flipLogo('white');
@@ -85,7 +91,9 @@ function seeAnswer() {
     document.getElementById('progressbar').classList.remove('border-darkblue');
     document.getElementById('progressbar').classList.add('border-white');
     document.getElementById('progressbar').style.width = (qIndex / numQuestions) * 100 + "%";
-    document.getElementById('answer').classList.remove('hidden');
+    transitionElements(current, 'answer');
+    current = 'answer';
+    //document.getElementById('answer').classList.remove('hidden');
     document.getElementById('progress').classList.remove('hidden');
 }
 
@@ -95,10 +103,10 @@ function scoreAnswer(answerValidity) {
     }
     if (qIndex < numQuestions) {
         qIndex++;
-        document.getElementById('answer').classList.add('hidden');
+        //document.getElementById('answer').classList.add('hidden');
         askQuestion();
     } else {
-        document.getElementById('answer').classList.add('hidden');
+        //document.getElementById('answer').classList.add('hidden');
         viewScore();
     }
 }
@@ -114,7 +122,9 @@ function viewScore() {
     flipSVGs('lightblue');
     flipLogo('lightblue');
     document.getElementById('progress').classList.add('hidden');
-    document.getElementById('result').classList.remove('hidden');
+    //document.getElementById('result').classList.remove('hidden');
+    transitionElements(current, 'result');
+    current = 'result';
 }
 
 function flipSVGs(color) {
@@ -131,6 +141,23 @@ function flipSVGs(color) {
 function flipLogo(color) {
     let logo = (color === 'white') ? 'images/Logo-inv.svg' : 'images/Logo.svg';
     document.getElementById('logoimage').setAttribute('data', logo);
+}
+
+function transitionElements(from, to) {
+    document.getElementById(from).addEventListener('transitionend', function(e) {
+        document.getElementById(from).classList.add('hidden');
+        document.getElementById(to).classList.remove('transition-opacity');
+        document.getElementById(to).classList.add('opacity-5');
+        document.getElementById(to).classList.remove('hidden');
+        document.getElementById(to).classList.add('transition-opacity');
+        document.getElementById(to).classList.remove('opacity-5');
+        console.log('event');
+    },  {
+        capture: false,
+        once: true,
+        passive: false
+    });
+    document.getElementById(from).classList.add('opacity-5');
 }
 
 function createBlobPoints() {
