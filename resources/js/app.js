@@ -172,7 +172,6 @@ function noise(x, y) {
             tag.setAttribute('d', spline(blobPoints, 1, true));
         }
     }
-    //document.getElementById('blob-l').getElementsByTagName('path').setAttribute('d', spline(blobPoints, 1, true));
     requestAnimationFrame(animate);
     for (let i = 0; i < blobPoints.length; i++) {
         const point = blobPoints[i];
