@@ -147,17 +147,17 @@ function transitionElements(from, to) {
     document.getElementById(from).addEventListener('transitionend', function(e) {
         document.getElementById(from).classList.add('hidden');
         document.getElementById(to).classList.remove('transition-opacity');
-        document.getElementById(to).classList.add('opacity-5');
+        document.getElementById(to).style.opacity = 0;
         document.getElementById(to).classList.remove('hidden');
         document.getElementById(to).classList.add('transition-opacity');
-        document.getElementById(to).classList.remove('opacity-5');
+        document.getElementById(to).style.opacity = 1;
         console.log('event');
     },  {
         capture: false,
         once: true,
         passive: false
     });
-    document.getElementById(from).classList.add('opacity-5');
+    document.getElementById(from).style.opacity = 0;
 }
 
 function createBlobPoints() {
