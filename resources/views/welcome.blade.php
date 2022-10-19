@@ -34,13 +34,13 @@
                     <div id="progressbar" class="absolute h-0.5 w-0 rounded-full border-4 transition-[width] ease-linear duration-1000"></div>
                 </div>
                 <div>
-                    <p id="progresstext" class="text-16 font-normal text-center"></p>
+                    <p id="progresstext" class="text-16 font-normal text-center transition-color duration-1000"></p>
                 </div>
             </div>
             <div id="start" class="text-darkblue h-screen flex flex-col justify-center items-center text-center transition-opacity duration-500">
                 <h1 class="z-50 text-32 md:text-48 font-semibold">Svensk mästare i TP?</h1>
                 <p class="z-50 max-w-lg text-20 font-normal mt-8 mb-10">Utmana vänner, kollegor och familj på frågesport. Svara på 35 samtida frågor i 7 olika kategorier.</p>
-                <button id="btnnewgame"  class="z-50 text-16 text-lightblue font-semibold border-2 border-lightblue rounded-full px-8 py-3.5 hover:bg-lightblue hover:text-white">Klicka här för att starta</button>
+                <button id="btnnewgame"  class="z-51 text-16 text-lightblue font-semibold border-2 border-lightblue rounded-full px-8 py-3.5 hover:bg-lightblue hover:text-white">Klicka här för att starta</button>
             </div>
             <div id="question" class="bg-transparent hidden text-darkblue h-screen flex flex-col justify-center items-center text-center transition-opacity duration-500">
                 <h1 id="questioncategory" class="z-50 text-14 font-semibold"></h1>
