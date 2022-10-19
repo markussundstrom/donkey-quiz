@@ -15,7 +15,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 import { spline } from '@georgedoescode/spline';
 import  { createNoise2D }  from 'simplex-noise';
 
-const numQuestions = 10;
+const numQuestions = 35;
 let points = [0, 0, 0, 0, 0, 0, 0];
 let questions = [];
 const categories = ['Film & TV', 'Geografi', 'Historia', 'Musik', 'Övrigt', 'Vetenskap', 'Sport'];
@@ -50,8 +50,8 @@ function playGame() {
         //hideElement('result');
         askQuestion();
     }
-    //xhttp.open('GET', 'questions');
-    xhttp.open('GET', 'largest');
+    xhttp.open('GET', 'questions');
+    //xhttp.open('GET', 'largest');
     xhttp.send();
 }
 
