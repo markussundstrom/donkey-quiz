@@ -51,7 +51,6 @@ class QuizData extends Controller
         foreach ($longest as $key => $value) {
             $questions[] = $questionlib[$key];
         }
-        sleep(5);
         return response()->json($questions);
     }
 

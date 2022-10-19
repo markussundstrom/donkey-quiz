@@ -163,25 +163,28 @@ function transitionElements(from, to) {
 }
 
 function createBlobPoints() {
-    const blobPoints = [];
+    const blobPoints = [[], []];
     const numPoints = 6;
     const angleStep = (Math.PI * 2) / numPoints;
-    const rad = 175;
+    const rad = 170;
     
-    for (let i = 1; i <= numPoints; i++) {
-        const theta = i * angleStep;
-        const x = 200 + Math.cos(theta) * rad;
-        const y = 200 + Math.sin(theta) * rad;
+    for (let bp of blobPoints) {
+        for (let i = 1; i <= numPoints; i++) {
+            const theta = i * angleStep;
+            const x = 200 + Math.cos(theta) * rad;
+            const y = 200 + Math.sin(theta) * rad;
 
-        blobPoints.push({
-            x: x,
-            y: y,
-            originX: x,
-            originY: y,
-            noiseOffsetX: Math.random() * 1000,
-            noiseOffsetY: Math.random() * 1000,
-        });
+            bp.push({
+                x: x,
+                y: y,
+                originX: x,
+                originY: y,
+                noiseOffsetX: Math.random() * 1000,
+                noiseOffsetY: Math.random() * 1000,
+            });
+        }
     }
+    console.log(blobPoints);
     return blobPoints;
 }
 
@@ -194,27 +197,29 @@ function noise(x, y) {
 }
 
 (function animate() {
-    const blobs = document.getElementsByClassName('blob');
-    for (let blob of blobs) {
-        let svgtags = blob.getElementsByTagName('path');
-        for (let tag of svgtags) {
-            tag.setAttribute('d', spline(blobPoints, 1, true));
-        }
-    }
+    //const blobs = document.getElementsByClassName('blob');
+    let blobl = document.getElementById('blob-l');
+    let blobr = document.getElementById('blob-r');
+    //let svgl = blobl.setAttribut//for (let blob of blobs) {
+    //    let svgtags = blob.getElementsByTagName('path');
+    document.getElementById('blobl-path').setAttribute('d', spline(blobPoints[0], 1, true));
+    document.getElementById('blobr-path').setAttribute('d', spline(blobPoints[1], 1, true));
     requestAnimationFrame(animate);
-    for (let i = 0; i < blobPoints.length; i++) {
-        const point = blobPoints[i];
+    for (let bp of blobPoints) {
+        for (let i = 0; i < bp.length; i++) {
+            const point = bp[i];
 
-        const nX = noise(point.noiseOffsetX, point.noiseOffsetX);
-        const nY = noise(point.noiseOffsetY, point.noiseOffsetY);
-        const x = map(nX, -1, 1, point.originX - 30, point.originX + 30);
-        const y = map(nY, -1, 1, point.originY - 30, point.originY + 30);
+            const nX = noise(point.noiseOffsetX, point.noiseOffsetX);
+            const nY = noise(point.noiseOffsetY, point.noiseOffsetY);
+            const x = map(nX, -1, 1, point.originX - 30, point.originX + 30);
+            const y = map(nY, -1, 1, point.originY - 30, point.originY + 30);
 
-        point.x = x;
-        point.y = y;
+            point.x = x;
+            point.y = y;
 
-        point.noiseOffsetX += noiseStep;
-        point.noiseOffsetY += noiseStep;
+            point.noiseOffsetX += noiseStep;
+            point.noiseOffsetY += noiseStep;
+        }
     }
 })();
 
