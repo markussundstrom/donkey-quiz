@@ -34,4 +34,24 @@ class QuizData extends Controller
         }
         return response()->json($questions);
     }
+
+    function provideLargest() {
+        $questionlib = json_decode(file_get_contents(storage_path('/') . 'questions.json'), true);
+        $questions = array();
+        $longest = array();
+        $qlengths = array();
+        $alengths = array();
+        foreach ($questionlib as $q) {
+            $qlengths[] = mb_strlen($q['question'], 'UTF-8');
+            $alengths[] = mb_strlen($q['answer'], 'UTF-8');
+        }
+        arsort($qlengths, SORT_NUMERIC);
+        arsort($alengths, SORT_NUMERIC);
+        $longest = array_slice($qlengths, 0, 5, true)  + array_slice($alengths, 0, 5, true);
+        foreach ($longest as $key => $value) {
+            $questions[] = $questionlib[$key];
+        }
+        return response()->json($questions);
+    }
+
 }

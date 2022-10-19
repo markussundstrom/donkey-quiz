@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('questions', [QuizData::class, 'provideQuestions']);
+Route::get('largest', [QuizData::class, 'provideLargest']);

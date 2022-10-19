@@ -62,49 +62,50 @@
                 <div class="z-50 lg:w-1/2 md:w-3/4 flex flex-col md:flex-row justify-between items-center">
                     <div id="filmtv" class="resultrow">
                         <div id="0-0" class="w-full"><p class="text-14 font-semibold text-center">Film &amp; TV</div>
-                        <div id="0-1" class="indicator"></div><div id="0-2" class="indicator"></div>
-                        <div id="0-3" class="indicator"></div><div id="0-4" class="indicator"></div>
-                        <div id="0-5" class="indicator"></div>
+                        <div id="0-1" class="indicator bg-lightgray"></div><div id="0-2" class="indicator bg-lightgray"></div>
+                        <div id="0-3" class="indicator bg-lightgray"></div><div id="0-4" class="indicator bg-lightgray"></div>
+                        <div id="0-5" class="indicator bg-lightgray"></div>
                     </div>
                     <div id="geografi" class="resultrow">
                         <div id="1-0" class="w-full"><p class="text-14 font-semibold text-center">Geografi</p></div>
-                        <div id="1-1" class="indicator"></div><div id="1-2" class="indicator"></div>
-                        <div id="1-3" class="indicator"></div><div id="1-4" class="indicator"></div>
-                        <div id="1-5" class="indicator"></div>
+                        <div id="1-1" class="indicator bg-lightgray"></div><div id="1-2" class="indicator bg-lightgray"></div>
+                        <div id="1-3" class="indicator bg-lightgray"></div><div id="1-4" class="indicator bg-lightgray"></div>
+                        <div id="1-5" class="indicator bg-lightgray"></div>
                     </div>
                     <div id="historia" class="resultrow">
                         <div id="2-0" class="w-full"><p class="text-14 font-semibold text-center">Historia</p></div>
-                        <div id="2-1" class="indicator"></div><div id="2-2" class="indicator"></div>
-                        <div id="2-3" class="indicator"></div><div id="2-4" class="indicator"></div>
-                        <div id="2-5" class="indicator"></div>
+                        <div id="2-1" class="indicator bg-lightgray"></div><div id="2-2" class="indicator bg-lightgray"></div>
+                        <div id="2-3" class="indicator bg-lightgray"></div><div id="2-4" class="indicator bg-lightgray"></div>
+                        <div id="2-5" class="indicator bg-lightgray"></div>
                     </div>
                     <div id="musik" class="resultrow">
                         <div id="3-0" class="w-full"><p class="text-14 font-semibold text-center">Musik</p></div>
-                        <div id="3-1" class="indicator"></div><div id="3-2" class="indicator"></div>
-                        <div id="3-3" class="indicator"></div><div id="3-4" class="indicator"></div>
-                        <div id="3-5" class="indicator"></div>
+                        <div id="3-1" class="indicator bg-lightgray"></div><div id="3-2" class="indicator bg-lightgray"></div>
+                        <div id="3-3" class="indicator bg-lightgray"></div><div id="3-4" class="indicator bg-lightgray"></div>
+                        <div id="3-5" class="indicator bg-lightgray"></div>
                     </div>
                     <div id="ovrigt" class="resultrow">
                         <div id="4-0" class="w-full"><p class="text-14 font-semibold text-center">Övrigt</p></div>
-                        <div id="4-1" class="indicator"></div><div id="4-2" class="indicator"></div>
-                        <div id="4-3" class="indicator"></div><div id="4-4" class="indicator"></div>
-                        <div id="4-5" class="indicator"></div>
+                        <div id="4-1" class="indicator bg-lightgray"></div><div id="4-2" class="indicator bg-lightgray"></div>
+                        <div id="4-3" class="indicator bg-lightgray"></div><div id="4-4" class="indicator bg-lightgray"></div>
+                        <div id="4-5" class="indicator bg-lightgray"></div>
                     </div>
                     <div id="vetenskap" class="resultrow">
                         <div id="5-0" class="w-full"><p class="text-14 font-semibold text-center">Vetenskap</p></div>
-                        <div id="5-1" class="indicator"></div><div id="5-2" class="indicator"></div>
-                        <div id="5-3" class="indicator"></div><div id="5-4" class="indicator"></div>
-                        <div id="5-5" class="indicator"></div>
+                        <div id="5-1" class="indicator bg-lightgray"></div><div id="5-2" class="indicator bg-lightgray"></div>
+                        <div id="5-3" class="indicator bg-lightgray"></div><div id="5-4" class="indicator bg-lightgray"></div>
+                        <div id="5-5" class="indicator bg-lightgray"></div>
                     </div>
                     <div id="sport" class="resultrow">
                         <div id="6-0" class="w-full"><p class="text-14 font-semibold text-center">Sport</p></div>
-                        <div id="6-1" class="indicator"></div><div id="6-2" class="indicator"></div>
-                        <div id="6-3" class="indicator"></div><div id="6-4" class="indicator"></div>
-                        <div id="6-5" class="indicator"></div>
+                        <div id="6-1" class="indicator bg-lightgray"></div><div id="6-2" class="indicator bg-lightgray"></div>
+                        <div id="6-3" class="indicator bg-lightgray"></div><div id="6-4" class="indicator bg-lightgray"></div>
+                        <div id="6-5" class="indicator bg-lightgray"></div>
                     </div>
                 </div>
                 <button id="btnrunback" class="z-50 text-16 font-semibold text-lightblue border-2 border-lightblue rounded-full px-8 py-3.5 hover:bg-lightblue hover:text-white mt-1 md:mt-16">En runda till</button>
             </div>
+            <div class="w-0 h-0 hidden bg-green"></div>
         </div>
         <script type="module" crossorigin src="http://localhost:3000/@@vite/client"></script>
         <script type="module" crossorigin src="http://localhost:3000/resources/js/app.js"></script>

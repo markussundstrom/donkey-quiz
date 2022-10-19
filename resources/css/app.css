@@ -6,7 +6,7 @@
 
 @layer components {
     .indicator {
-        @apply bg-lightgray w-10 h-8 rounded-full
+        @apply w-10 h-8 rounded-full
     }
     .resultrow {
         @apply flex md:flex-col-reverse flex-row flex-wrap md:flex-nowrap items-center justify-center basis-0 grow gap-1

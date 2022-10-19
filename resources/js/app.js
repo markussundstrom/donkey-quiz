@@ -15,7 +15,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 import { spline } from '@georgedoescode/spline';
 import  { createNoise2D }  from 'simplex-noise';
 
-const numQuestions = 35;
+const numQuestions = 10;
 let points = [0, 0, 0, 0, 0, 0, 0];
 let questions = [];
 const categories = ['Film & TV', 'Geografi', 'Historia', 'Musik', 'Övrigt', 'Vetenskap', 'Sport'];
@@ -51,7 +51,8 @@ function playGame() {
         current = 'start';
         askQuestion();
     }
-    xhttp.open('GET', 'questions');
+    //xhttp.open('GET', 'questions');
+    xhttp.open('GET', 'largest');
     xhttp.send();
 }
 
@@ -116,6 +117,7 @@ function viewScore() {
         total += points[i];
         for (let j = 1; j <= points[i]; j++) {
             document.getElementById(i + '-' + j).classList.add('bg-green');
+            document.getElementById(i + '-' + j).classList.remove('bg-lightgray');
         }
     }
     document.getElementById('totalscore').innerHTML = total + ' av ' + numQuestions + ' rätt';
