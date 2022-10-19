@@ -28,8 +28,8 @@ class QuizData extends Controller
             if (in_array($randomnum, $used_questions, true)) {
                 continue;
             }
-            array_push($questions, $questionlib[$randomnum]);
-            array_push($used_questions, $randomnum);
+            $questions[] = $questionlib[$randomnum];
+            $used_questions[] = $randomnum;
             $categories[$questionlib[$randomnum]['category']]++;
         }
         return response()->json($questions);
