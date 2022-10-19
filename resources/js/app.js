@@ -21,7 +21,7 @@ let questions = [];
 const categories = ['Film & TV', 'Geografi', 'Historia', 'Musik', 'Övrigt', 'Vetenskap', 'Sport'];
 let qIndex;
 let total;
-let current = '';
+let current = 'start';
 const blobPoints = createBlobPoints();
 const simplex = createNoise2D();
 let noiseStep = 0.005;
@@ -48,7 +48,6 @@ function playGame() {
         //document.getElementById('result').classList.add('hidden');
         //transitionElementa('start', );
         //hideElement('result');
-        current = 'start';
         askQuestion();
     }
     //xhttp.open('GET', 'questions');
@@ -57,6 +56,7 @@ function playGame() {
 }
 
 function askQuestion() {
+    document.getElementById('logotext').classList.add('hidden')
     document.getElementById('questioncategory').innerHTML = questions[qIndex -1].category;
     document.getElementById('questiontext').innerHTML = questions[qIndex -1].question;
     flipSVGs('lightblue');
