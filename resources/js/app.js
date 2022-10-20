@@ -59,8 +59,7 @@ function askQuestion() {
     document.getElementById('logotext').classList.add('hidden')
     document.getElementById('questioncategory').innerHTML = questions[qIndex -1].category;
     document.getElementById('questiontext').innerHTML = questions[qIndex -1].question;
-    flipSVGs('lightblue');
-    flipLogo('lightblue');
+    document.getElementById('progress').classList.remove('hidden');
     document.getElementById('progresstext').innerHTML = "Fråga " + qIndex + " av " + numQuestions;
     document.getElementById('progresstext').classList.remove('text-white');
     document.getElementById('progresstext').classList.remove('bg-lightblue');
@@ -72,33 +71,33 @@ function askQuestion() {
     document.getElementById('progressbar').classList.remove('border-white');
     document.getElementById('progressbar').classList.add('border-darkblue');
     document.getElementById('progressbar').style.width = ((qIndex - 0.5) / numQuestions) * 100 + "%";
-    //document.getElementById('question').classList.remove('hidden');
     transitionElements(current, 'question');
     current = 'question';
-    document.getElementById('progress').classList.remove('hidden');
+    flipSVGs('lightblue');
+    flipLogo('lightblue');
 }
 
 function seeAnswer() {
     //document.getElementById('question').classList.add('hidden');
     document.getElementById('answertext').innerHTML = questions[qIndex - 1].answer;
-    flipSVGs('white');
-    flipLogo('white');
     document.getElementById('progresstext').innerHTML = "Fråga " + qIndex + " av " + numQuestions;
-    document.getElementById('progresstext').classList.remove('bg-white');
     document.getElementById('progresstext').classList.add('bg-lightblue');
-    document.getElementById('progresstext').classList.remove('text-darkblue');
+    document.getElementById('progresstext').classList.remove('bg-white');
     document.getElementById('progresstext').classList.add('text-white');
-    document.getElementById('progressbase').classList.remove('bg-lightblue');
+    document.getElementById('progresstext').classList.remove('text-darkblue');
     document.getElementById('progressbase').classList.add('bg-white');
-    document.getElementById('progressbar').classList.remove('bg-darkblue');
+    document.getElementById('progressbase').classList.remove('bg-lightblue');
     document.getElementById('progressbar').classList.add('bg-white');
-    document.getElementById('progressbar').classList.remove('border-darkblue');
+    document.getElementById('progressbar').classList.remove('bg-darkblue');
     document.getElementById('progressbar').classList.add('border-white');
+    document.getElementById('progressbar').classList.remove('border-darkblue');
     document.getElementById('progressbar').style.width = (qIndex / numQuestions) * 100 + "%";
     transitionElements(current, 'answer');
     current = 'answer';
+    flipSVGs('white');
+    flipLogo('white');
     //document.getElementById('answer').classList.remove('hidden');
-    document.getElementById('progress').classList.remove('hidden');
+    //document.getElementById('progress').classList.remove('hidden');
 }
 
 function scoreAnswer(answerValidity) {
@@ -154,10 +153,10 @@ function transitionElements(from, to) {
         document.getElementById(to).classList.remove('transition-opacity');
         document.getElementById(to).style.opacity = 0;
         document.getElementById(to).classList.remove('hidden');
-        setTimeout(10);
-        document.getElementById(to).classList.add('transition-opacity');
-        document.getElementById(to).style.opacity = 1;
-        console.log('event');
+        setTimeout(function() {
+            document.getElementById(to).classList.add('transition-opacity');
+            document.getElementById(to).style.opacity = 1;
+        }, 10);
     },  {
         capture: false,
         once: true,

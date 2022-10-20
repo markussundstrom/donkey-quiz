@@ -30,8 +30,8 @@
             </div>
             <div id="progress" class="hidden absolute bottom-8 w-full flex flex-col items-center">
                 <div class="relative my-4 w-full max-w-lg flex flex-col justify-center align-center" >
-                    <div id="progressbase" class="h-0.5 w-full"></div>
-                    <div id="progressbar" class="absolute h-0.5 w-0 bg-darkblue rounded-full border-4 border-darkblue transition-[width] ease-linear duration-1000"></div>
+                    <div id="progressbase" class="h-0.5 w-full transition-color duration-500"></div>
+                    <div id="progressbar" class="absolute h-0.5 w-0 bg-darkblue rounded-full border-4 border-darkblue transition-[width] transition-color duration-500"></div>
                 </div>
                 <div>
                     <p id="progresstext" class="text-16 font-normal text-center transition-color duration-1000"></p>
