@@ -154,6 +154,7 @@ function transitionElements(from, to) {
         document.getElementById(to).classList.remove('transition-opacity');
         document.getElementById(to).style.opacity = 0;
         document.getElementById(to).classList.remove('hidden');
+        setTimeout(10);
         document.getElementById(to).classList.add('transition-opacity');
         document.getElementById(to).style.opacity = 1;
         console.log('event');
