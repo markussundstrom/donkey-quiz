@@ -187,7 +187,6 @@ function createBlobPoints() {
             });
         }
     }
-    console.log(blobPoints);
     return blobPoints;
 }
 
@@ -200,13 +199,10 @@ function noise(x, y) {
 }
 
 (function animate() {
-    //const blobs = document.getElementsByClassName('blob');
-    let blobl = document.getElementById('blob-l');
-    let blobr = document.getElementById('blob-r');
-    //let svgl = blobl.setAttribut//for (let blob of blobs) {
-    //    let svgtags = blob.getElementsByTagName('path');
-    document.getElementById('blobl-path').setAttribute('d', spline(blobPoints[0], 1, true));
-    document.getElementById('blobr-path').setAttribute('d', spline(blobPoints[1], 1, true));
+    const blobs = document.getElementsByClassName('blobpath');
+    for (let i = 0; i < blobs.length; i++) {
+        blobs[i].setAttribute('d', spline(blobPoints[i], 1, true));
+    }
     requestAnimationFrame(animate);
     for (let bp of blobPoints) {
         for (let i = 0; i < bp.length; i++) {

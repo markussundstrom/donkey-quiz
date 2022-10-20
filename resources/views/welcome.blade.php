@@ -16,13 +16,13 @@
                 <div class="w-full relative min-w-[1200px] h-full">
                     <div class="block absolute left-0 bottom-[77px]">
                         <svg id="blob-l" class="blob w-[400px] h-[400px]"> 
-                            <path id="blobl-path" d="" fill="#7678ED"></path>
+                            <path class="blobpath" d="" fill="#7678ED"></path>
                         </svg>
                         <!--<object class="blob" type="image/svg+xml" data="images/blob-l.svg" width="154" height="415"></object>-->
                     </div>
                     <div class="block absolute right-0 top-[86px]">
                         <svg id="blob-r" class="blob w-[400px] h-[400px]"> 
-                            <path id="blobr-path" d="" fill="#7678ED"></path>
+                            <path class="blobpath" d="" fill="#7678ED"></path>
                         </svg>
                         <!--<object class="blob" type="image/svg+xml" data="images/blob-r.svg" width="154" height="415"></object>-->
                     </div>
