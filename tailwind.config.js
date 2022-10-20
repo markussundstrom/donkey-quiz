@@ -46,7 +46,10 @@ module.exports = {
     },
 
     extend: {
-      // ..
+      screens: {
+          'nb': { 'raw': '(max-height: 620px)' },
+          // => @media (max-height: 620) { ... }
+      }
     }
   },
   plugins: [

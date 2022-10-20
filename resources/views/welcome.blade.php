@@ -15,13 +15,13 @@
             <div class="z-10 hidden pointer-events-none overflow-hidden blob:flex justify-center fixed inset-0">
                 <div class="w-full relative min-w-[1200px] h-full">
                     <div class="block absolute left-0 bottom-[77px]">
-                        <svg id="blob-l" class="blob w-[400px] h-[400px]"> 
+                        <svg id="blob-l" viewBox="0 0 400 400" class="blob nb:w-[250px] w-[400px] 2xl:w-[500px] nb:h-[250px]  h-[400px] 2xl:h-[500px]"> 
                             <path class="blobpath" d="" fill="#7678ED"></path>
                         </svg>
                         <!--<object class="blob" type="image/svg+xml" data="images/blob-l.svg" width="154" height="415"></object>-->
                     </div>
                     <div class="block absolute right-0 top-[86px]">
-                        <svg id="blob-r" class="blob w-[400px] h-[400px]"> 
+                        <svg id="blob-r" viewBox="0 0 400 400" class="blob nb:w-[250px] w-[400px] 2xl:w-[500px] nb:h-[250px]  h-[400px] 2xl:h-[500px]">
                             <path class="blobpath" d="" fill="#7678ED"></path>
                         </svg>
                         <!--<object class="blob" type="image/svg+xml" data="images/blob-r.svg" width="154" height="415"></object>-->
@@ -44,12 +44,12 @@
             </div>
             <div id="question" class="bg-transparent hidden text-darkblue h-screen flex flex-col justify-center items-center text-center transition-opacity duration-500">
                 <h1 id="questioncategory" class="z-50 text-14 font-semibold"></h1>
-                <p id="questiontext" class="z-50 max-w-2xl text-20 md:text-48 font-semibold mx-8 mt-10 mb-16 md:mb-10"></p>
+                <p id="questiontext" class="z-50 max-w-2xl text-20 nb:text-24 md:text-48 font-semibold mx-8 mt-10 mb-16 md:mb-10"></p>
                 <button id="btnseeanswer" class="z-50 text-16 font-semibold bg-white text-lightblue border-2 border-lightblue rounded-full px-8 py-3.5 hover:bg-lightblue hover:text-white">Se svaret</button>
             </div>
             <div id="answer" class="bg-lightblue hidden text-white h-screen flex flex-col justify-center items-center text-center transition-opacity duration-500">
                 <h1 class="z-50 text-14 font-semibold">Rätt svar</h1>
-                <p id="answertext" class="z-50 text-20 md:text-48 text-green font-semibold my-10 mx-8 max-w-2xl"></p>
+                <p id="answertext" class="z-50 text-20 nb:text-24 md:text-48 text-green font-semibold my-10 mx-8 max-w-2xl"></p>
                 <p class="z-50 text-14 font-semiboldi mb-10">Svarade du rätt?</p>
                 <div class="flex flex-row justify-between gap-6">
                     <button id="btncorrect" class="z-50 text-16 font-semibold border-2 border-white rounded-full px-8 py-3.5 hover:bg-white hover:text-lightblue">Ja</button>
