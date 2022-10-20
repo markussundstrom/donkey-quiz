@@ -37,6 +37,11 @@ function playGame() {
     for (let i=0; i < points.length; i++) {
         points[i] = 0;
     }
+    let indicators = document.getElementsByClassName('indicator') 
+        for (let ind of indicators) {
+        ind.classList.remove('bg-green');
+        ind.classList.add('bg-lightgray');
+    }
 
     total = 0;
     questions = [];
@@ -61,8 +66,11 @@ function askQuestion() {
     document.getElementById('questiontext').innerHTML = questions[qIndex -1].question;
     document.getElementById('progress').classList.remove('hidden');
     document.getElementById('progresstext').innerHTML = "Fråga " + qIndex + " av " + numQuestions;
+    document.body.classList.add('bg-white');
+    document.body.classList.remove('bg-lightblue');
+    transitionElements(current, 'question');
+    current = 'question';
     document.getElementById('progresstext').classList.remove('text-white');
-    document.getElementById('progresstext').classList.remove('bg-lightblue');
     document.getElementById('progresstext').classList.add('text-darkblue');
     document.getElementById('progressbase').classList.remove('bg-white');
     document.getElementById('progressbase').classList.add('bg-lightblue');
@@ -71,8 +79,6 @@ function askQuestion() {
     document.getElementById('progressbar').classList.remove('border-white');
     document.getElementById('progressbar').classList.add('border-darkblue');
     document.getElementById('progressbar').style.width = ((qIndex - 0.5) / numQuestions) * 100 + "%";
-    transitionElements(current, 'question');
-    current = 'question';
     flipSVGs('lightblue');
     flipLogo('lightblue');
 }
@@ -81,8 +87,10 @@ function seeAnswer() {
     //document.getElementById('question').classList.add('hidden');
     document.getElementById('answertext').innerHTML = questions[qIndex - 1].answer;
     document.getElementById('progresstext').innerHTML = "Fråga " + qIndex + " av " + numQuestions;
-    document.getElementById('progresstext').classList.add('bg-lightblue');
-    document.getElementById('progresstext').classList.remove('bg-white');
+    document.body.classList.add('bg-lightblue');
+    document.body.classList.remove('bg-white');
+    transitionElements(current, 'answer');
+    current = 'answer';
     document.getElementById('progresstext').classList.add('text-white');
     document.getElementById('progresstext').classList.remove('text-darkblue');
     document.getElementById('progressbase').classList.add('bg-white');
@@ -92,8 +100,6 @@ function seeAnswer() {
     document.getElementById('progressbar').classList.add('border-white');
     document.getElementById('progressbar').classList.remove('border-darkblue');
     document.getElementById('progressbar').style.width = (qIndex / numQuestions) * 100 + "%";
-    transitionElements(current, 'answer');
-    current = 'answer';
     flipSVGs('white');
     flipLogo('white');
     //document.getElementById('answer').classList.remove('hidden');
@@ -127,6 +133,8 @@ function viewScore() {
     flipLogo('lightblue');
     document.getElementById('progress').classList.add('hidden');
     //document.getElementById('result').classList.remove('hidden');
+    document.body.classList.add('bg-white');
+    document.body.classList.remove('bg-lightblue');
     transitionElements(current, 'result');
     current = 'result';
 }

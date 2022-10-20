@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Donkeyquiz - boilerplate</title>
     </head>
-    <body class="font-poppins">
+    <body class="font-poppins bg-white transition-color duration-500">
         <div id="cont" class="-z-50 container mx-auto h-screen">
             <div class="logo m-auto right-0 left-0 absolute flex flex-col items-center p-4 md:items-start md:pt-7 md:pl-20">
                 <object id="logoimage" type="image/svg+xml" data="images/Logo.svg" width="96" height="112"></object>
@@ -47,7 +47,7 @@
                 <p id="questiontext" class="z-50 max-w-2xl text-20 nb:text-24 md:text-48 font-semibold mx-8 mt-10 mb-16 md:mb-10"></p>
                 <button id="btnseeanswer" class="z-50 text-16 font-semibold bg-white text-lightblue border-2 border-lightblue rounded-full px-8 py-3.5 hover:bg-lightblue hover:text-white">Se svaret</button>
             </div>
-            <div id="answer" class="bg-lightblue hidden text-white h-screen flex flex-col justify-center items-center text-center transition-opacity duration-500">
+            <div id="answer" class="hidden text-white h-screen flex flex-col justify-center items-center text-center transition-opacity duration-500">
                 <h1 class="z-50 text-14 font-semibold">Rätt svar</h1>
                 <p id="answertext" class="z-50 text-20 nb:text-24 md:text-48 text-green font-semibold my-10 mx-8 max-w-2xl"></p>
                 <p class="z-50 text-14 font-semiboldi mb-10">Svarade du rätt?</p>
@@ -105,7 +105,6 @@
                 </div>
                 <button id="btnrunback" class="z-50 text-16 font-semibold text-lightblue border-2 border-lightblue rounded-full px-8 py-3.5 hover:bg-lightblue hover:text-white mt-1 md:mt-16">En runda till</button>
             </div>
-            <div class="w-0 h-0 hidden bg-green"></div>
         </div>
         <script type="module" crossorigin src="http://localhost:3000/@@vite/client"></script>
         <script type="module" crossorigin src="http://localhost:3000/resources/js/app.js"></script>
