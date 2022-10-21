@@ -48,11 +48,6 @@ function playGame() {
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
         questions.push(...JSON.parse(this.responseText));
-        console.log(questions);
-        //document.getElementById('start').classList.add('hidden');
-        //document.getElementById('result').classList.add('hidden');
-        //transitionElementa('start', );
-        //hideElement('result');
         askQuestion();
     }
     xhttp.open('GET', 'questions');
@@ -84,7 +79,6 @@ function askQuestion() {
 }
 
 function seeAnswer() {
-    //document.getElementById('question').classList.add('hidden');
     document.getElementById('answertext').innerHTML = questions[qIndex - 1].answer;
     document.getElementById('progresstext').innerHTML = "Fråga " + qIndex + " av " + numQuestions;
     document.body.classList.add('bg-lightblue');
@@ -102,8 +96,6 @@ function seeAnswer() {
     document.getElementById('progressbar').style.width = (qIndex / numQuestions) * 100 + "%";
     flipSVGs('white');
     flipLogo('white');
-    //document.getElementById('answer').classList.remove('hidden');
-    //document.getElementById('progress').classList.remove('hidden');
 }
 
 function scoreAnswer(answerValidity) {
@@ -112,10 +104,8 @@ function scoreAnswer(answerValidity) {
     }
     if (qIndex < numQuestions) {
         qIndex++;
-        //document.getElementById('answer').classList.add('hidden');
         askQuestion();
     } else {
-        //document.getElementById('answer').classList.add('hidden');
         viewScore();
     }
 }
@@ -132,7 +122,6 @@ function viewScore() {
     flipSVGs('lightblue');
     flipLogo('lightblue');
     document.getElementById('progress').classList.add('hidden');
-    //document.getElementById('result').classList.remove('hidden');
     document.body.classList.add('bg-white');
     document.body.classList.remove('bg-lightblue');
     transitionElements(current, 'result');
