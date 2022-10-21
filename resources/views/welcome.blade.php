@@ -10,7 +10,7 @@
         <div id="cont" class="-z-50 container mx-auto h-screen">
             <div class="logo m-auto right-0 left-0 absolute flex flex-col items-center p-4 md:items-start md:pt-7 md:pl-20">
                 <object id="logoimage" type="image/svg+xml" data="images/Logo.svg" width="96" height="112"></object>
-                <p id="logotext" class="md:block font-24 text-darkblue font-semibold">donkeyquiz</p>
+                <p id="logotext" class="md:block font-24 text-darkblue font-semibold transition-color duration-500">donkeyquiz</p>
             </div>
             <div class="z-10 hidden pointer-events-none overflow-hidden blob:flex justify-center fixed inset-0">
                 <div class="w-full relative min-w-[1200px] h-full">

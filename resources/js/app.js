@@ -57,6 +57,8 @@ function playGame() {
 
 function askQuestion() {
     document.getElementById('logotext').classList.add('hidden')
+    document.getElementById('logotext').classList.add('text-darkblue')
+    document.getElementById('logotext').classList.remove('text-white')
     document.getElementById('questioncategory').innerHTML = questions[qIndex -1].category;
     document.getElementById('questiontext').innerHTML = questions[qIndex -1].question;
     document.getElementById('progress').classList.remove('hidden');
@@ -85,6 +87,8 @@ function seeAnswer() {
     document.body.classList.remove('bg-white');
     transitionElements(current, 'answer');
     current = 'answer';
+    document.getElementById('logotext').classList.add('text-white')
+    document.getElementById('logotext').classList.remove('text-darkblue')
     document.getElementById('progresstext').classList.add('text-white');
     document.getElementById('progresstext').classList.remove('text-darkblue');
     document.getElementById('progressbase').classList.add('bg-white');
