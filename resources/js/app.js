@@ -104,7 +104,7 @@ function seeAnswer() {
 
 function scoreAnswer(answerValidity) {
     if (answerValidity) {
-        points[categories.indexOf(questions[qIndex - 1].category)]++
+        points[categories.indexOf(questions[qIndex - 1].category)]++;
     }
     if (qIndex < numQuestions) {
         qIndex++;
