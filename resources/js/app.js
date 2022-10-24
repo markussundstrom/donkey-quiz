@@ -144,8 +144,10 @@ function flipSVGs(color) {
 }
 
 function flipLogo(color) {
-    let logo = (color === 'white') ? 'images/Logo-inv.svg' : 'images/Logo.svg';
-    document.getElementById('logoimage').setAttribute('data', logo);
+    let paths = document.getElementById('logoimage').getSVGDocument().getElementsByTagName('path');
+    paths[0].setAttribute('fill', (color === 'white') ? 'white' : '#7678ED');
+    paths[1].setAttribute('fill', (color === 'white') ? '#7678ED' : 'white');
+    paths[2].setAttribute('fill', (color === 'white') ? '#7678ED' : 'white');
 }
 
 function transitionElements(from, to) {
